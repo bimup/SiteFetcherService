@@ -1,0 +1,6 @@
+@SiteFetcherService_HostAddress = http://localhost:5224
+
+GET {{SiteFetcherService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
