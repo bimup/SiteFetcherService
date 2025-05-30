@@ -24,11 +24,8 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Включение Swagger в Development-среде
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("AllowAll");
 app.UseAuthorization();

@@ -2,14 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
 
-# Копируем .sln и все .csproj файлы
+# Копируем .sln и .csproj файлы правильно
 COPY *.sln ./
-COPY **/*.csproj ./
+
+# Переходим во внутреннюю папку с проектом
+COPY SiteFetcherService/*.csproj ./SiteFetcherService/
 
 # Восстанавливаем зависимости
 RUN dotnet restore
 
-# Копируем весь исходный код
+# Копируем всё остальное
 COPY . .
 
 # Публикуем приложение
